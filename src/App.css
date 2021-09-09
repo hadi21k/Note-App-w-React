@@ -183,22 +183,23 @@ a {
   align-items: center;
   justify-content: space-between;
   color: var(--color-main);
-  padding: 10px;
+  padding: 15px;
 }
 
 .note-header h3 {
   display: flex;
   align-items: center;
-  font-size: 24px;
+  font-size: 2rem;
   cursor: pointer;
 }
 
-.note-header h3 svg {
-  fill: var(--color-main);
-  width: 20px;
-  margin-right: 8px;
+.update {
+  display: flex;
+  align-items: center;
 }
-
+.update h3 {
+  margin-left: 6px;
+}
 .note-header button {
   border: none;
   outline: none;
@@ -226,4 +227,21 @@ a {
 
 .note textarea::-webkit-scrollbar {
   display: none;
+}
+
+.done {
+  padding: 5px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+}
+.delete {
+  padding: 5px;
+  background-color: var(--color-bg);
+  border-radius: 50%;
+}
+
+@media screen and (max-width:464px){
+  .app-header h1{
+    font-size: 20px;
+  }
 }

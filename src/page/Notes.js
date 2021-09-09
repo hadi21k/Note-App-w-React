@@ -1,7 +1,16 @@
-import React from "react";
-import notes from "../assests/data";
+import React, { useEffect, useState } from "react";
+import AddNote from "../components/AddNote";
 import ListItem from "../components/ListItems";
 const Notes = () => {
+  const [notes, setNotes] = useState([]);
+  useEffect(() => {
+    getNotes();
+  }, []);
+  const getNotes = async () => {
+    let response = await fetch("http://127.0.0.1:5000/notes");
+    let data = await response.json();
+    setNotes(data);
+  };
   return (
     <div className="notes">
       <div className="notes-header">
@@ -10,9 +19,10 @@ const Notes = () => {
       </div>
       <div className="notes-list">
         {notes.map((note, index) => {
-            return <ListItem key={index} note={note} />
+          return <ListItem key={index} note={note} />;
         })}
       </div>
+      <AddNote />
     </div>
   );
 };
